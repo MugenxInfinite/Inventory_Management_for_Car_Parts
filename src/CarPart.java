@@ -1,26 +1,24 @@
-import java.text.DecimalFormat;
 import java.io.Serializable;
 
-public class CarPart implements Serializable  {
+public class CarPart implements Serializable {
 
-    public String name;
-    public int quantity;
-    public double price;
+    private String name;
+    private int quantity;
+    private double price;
 
-    public CarPart(String startModel,
-                int amountOfItems,
-                double startGallonsOfGas) {
-
-        name = startModel;
-        quantity = amountOfItems;
-        price = price;
+    // Full constructor
+    public CarPart(String name, int quantity, double price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
     }
 
-    public CarPart(String startModel) {
-        name = startModel;
+    public CarPart(String name) {
+        this.name = name;
     }
 
-    public String getModel() {
+    // Accessors
+    public String getName() {
         return name;
     }
 
@@ -28,29 +26,25 @@ public class CarPart implements Serializable  {
         return quantity;
     }
 
-    // Accessor method for variable "milesDriven"
     public double getPrice() {
         return price;
     }
 
-    public void setModel(String name) {
+    // Mutators
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getName(){
-        return name;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int setQuantity(int quantity){
-        return quantity;
-    }
-
-    public double setPrice(double price) {
-        return quantity;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + ", Quantity: " + quantity + ", Price: $ " + price;
+        return String.format("Name: %s, Quantity: %d, Price: $%.2f", name, quantity, price);
     }
 }
